@@ -85,6 +85,21 @@ const usrBio = document.createElement('p');
   usrNme.classList.add('name');
   displyNme.classList.add('username');
 
+  // I hate assigning values to shit.
+
+  usrImg.src = data.avatar_url;
+  usrNme.textContent = data.name;
+  displyNme.textContent = data.login;
+  usrLocation.textContent = 'Location: ${data.location}';
+  usrProfl.innerHTML = 'Profile: <a href=${data.html_url} > ${data.html_url}</a>';
+  usrflwrs.textContent = 'Followers: ${data.followers}';
+  usrFlwng.textContent = 'Following: ${data.following}';
+  usrBio.textContent = 'Bio: ${data.bio}';
+
+  // WHY DO I HAVE TO STRUCTURE THIS CRAP!? >:C GO AWAY!!!
+
+  
+
 /* List of LS Instructors Github username's: 
   tetondan
   dustinmyers
