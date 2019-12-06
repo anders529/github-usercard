@@ -26,6 +26,32 @@ axios.get('https://api.github.com/users/anders529')
            create a new component and add it to the DOM as a child of .cards
 */
 
+    // Going to pull follower info from GitHub
+    axios.get('https://api.github.com/users/anders529/followers')
+        .then(data => {
+          console.log('Dang, that actually worked! Here is a list of followers:' ,data.data);
+          const followersData = data.data;
+          followersData.forEach(followerData => {
+              followersArray.push(followerData.login);            
+          });
+        })
+    followersArray.forEach(follower => {
+      axios.get('https://api.github.com/users/${follower}')
+        .then(data => {
+          console.log('Follower Info: ', data.data);
+          const cards2 = document.querySelector('.cards');
+          cards2.appendChild(createCard(data.data));
+        })
+
+        .catch(err => {
+          console.log("Couldn't get follower info:", err);
+        })
+    })
+
+    .catch(err => {
+      console.log('There was an issue trying to get followers. Sorry!', err)
+    })
+
 /* Step 5: Now that you have your own card getting added to the DOM, either 
           follow this link in your browser https://api.github.com/users/<Your github name>/followers 
           , manually find some other users' github handles, or use the list found 
@@ -96,9 +122,20 @@ const usrBio = document.createElement('p');
   usrFlwng.textContent = 'Following: ${data.following}';
   usrBio.textContent = 'Bio: ${data.bio}';
 
-  // WHY DO I HAVE TO STRUCTURE THIS CRAP!? >:C GO AWAY!!!
+  // WHY DO I HAVE TO STRUCTURE THIS CRAP!? >:C GO AWAY!!! APPENDING CRAP SUCKS!!!
 
-  
+  usrCrd.appendChild(usrImg);
+  usrCrd.appendChild(usrInfo);
+  usrInfo.appendChild(usrNme);
+  usrInfo.appendChild(displNme);
+  usrInfo.appendChild(usrLocation);
+  usrInfo.appendChild(profl);
+  profl.appendChild(usrProfl);
+  usrInfo.appendChild(usrflwrs);
+  usrInfo.appendChild(usrFlwng);
+  usrInfo.appendChild(usrBio);
+
+  return usrCrd;
 
 /* List of LS Instructors Github username's: 
   tetondan
