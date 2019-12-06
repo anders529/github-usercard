@@ -64,6 +64,20 @@ const followersArray = [
 
 */
 
+// Adding DOM elements and stuff.
+
+const usrCrd = document.createElement('div');
+const usrImg = document.createElement('img');
+const UsrInfo = document.createElement('div');
+const usrNme = document.createElement('h3');
+const displName = document.createElement('p');
+const usrLocation = document.createElement('p');
+const profl = document.createElement('p');
+const usrProfl = document.createElement('a');
+const usrflwrs = document.createElement('p');
+const usrFlwng = document.createElement('p');
+const usrBio = document.createElement('p');
+
 /* List of LS Instructors Github username's: 
   tetondan
   dustinmyers
