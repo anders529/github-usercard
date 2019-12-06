@@ -78,6 +78,13 @@ const usrflwrs = document.createElement('p');
 const usrFlwng = document.createElement('p');
 const usrBio = document.createElement('p');
 
+// Going to add some classes.
+
+  usrCrd.classList.add('card');
+  usrInfo.classList.add('card-info');
+  usrNme.classList.add('name');
+  displyNme.classList.add('username');
+
 /* List of LS Instructors Github username's: 
   tetondan
   dustinmyers
